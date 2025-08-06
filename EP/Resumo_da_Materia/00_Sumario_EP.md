@@ -37,4 +37,9 @@
 		4. Coeficiente de Variação
 		5. Amplitude Interquartílica
 	6. Diagrama de Caixa (*BoxPlot*)
+3. [[03_Probabilidade]]
+4. [[04_Distribuicoes_Discretas_de_Probabilidade]]
+5. [[05_Distribuicoes_Continuas_de_Probabilidade]]
+6. [[06_Inferencia_Estatistica]]
+7. [[07_Correlacao_e_Regressao_Linear_Simples]]
 

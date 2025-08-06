@@ -227,7 +227,3 @@
 	- O problema da árvore de Steiner em grafos gerais é **NP-difícil**.
 		
 	- Nenhuma solução é conhecida para o problema da árvore de Steiner **em grafos**.
-
----
-
-FIM
