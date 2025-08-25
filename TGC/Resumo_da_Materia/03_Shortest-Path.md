@@ -94,3 +94,6 @@
 - Bellman-Ford é **mais geral**, porém **mais lento**.
 	
 - A saída dos algoritmos forma uma **árvore de caminhos mínimos** a partir da origem.
+
+---
+FIM

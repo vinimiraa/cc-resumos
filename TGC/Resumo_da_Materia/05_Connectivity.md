@@ -117,3 +117,5 @@ Seja $G = (V, E)$ um grafo direcionado. Para identificar as **componentes fortem
 > [!NOTE] Observação
 > Se o número de componentes fortemente conexas for igual ao número de vértices de $G$, então o grafo é acíclico.
 
+---
+FIM
