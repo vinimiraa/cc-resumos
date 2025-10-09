@@ -134,9 +134,44 @@ As descrições do processo também podem incluir:
 
 - Requisitos funcionais
 	- Declarações de serviços que o sistema deve fornecer, como o sistema deve reagir a entradas específicas e como o sistema deve se comportar em situações específicas.  
-	-  Pode indicar o que o sistema deve e não deve fazer.
+	- Pode indicar o que o sistema deve e não deve fazer.
 -  Requisitos não funcionais
-	-  Restrições nos serviços ou funções oferecidas pelo sistema, como restrições de tempo, restrições no processo de desenvolvimento, padrões, etc.
-	-  Geralmente se aplicam ao sistema como um todo, em vez de recursos ou serviços individuais.
+	- Restrições nos serviços ou funções oferecidas pelo sistema, como restrições de tempo, restrições no processo de desenvolvimento, padrões, etc.
+	- Geralmente se aplicam ao sistema como um todo, em vez de recursos ou serviços individuais.
 -  Requisitos de domínio
 	- Restrições no sistema do domínio de operação
+
+---
+
+## Projeto de Arquitetura
+
+- O projeto arquitetônico está preocupado em entender como um sistema de software deve ser organizado e projetar a estrutura geral desse sistema.
+- O projeto de arquitetura é o elo entre a fase de engenharia de requisitos e a de projeto (design), pois identifica os principais componentes estruturais de um sistema e as relações entre eles
+
+### Padrões de Arquitetura
+
+- Um padrão de arquitetura é uma descrição estilizada de boas práticas de design, que foi experimentada e testada em diferentes ambientes
+#### MVC (Model-View-Controller)
+
+- Separa a apresentação e a interações dos dados do sistema.
+	- Model
+		- onde ficam os dados e as regras de negócio
+	- View
+		- a interface com o usuário
+	- Controller
+		- recebe as ações do usuário coordena e decide quais dados mostrar na view.
+- É utilizados quando há várias maneiras de visualizar e interagir com os dados.
+- Separação de responsabilidades $\to$ manutenção e testes mais fáceis
+#### Arquitetura em Camadas
+
+- Organiza o sistema em camadas, com funcionalidades associada a cada uma.
+
+#### Arquitetura de Repositorio
+#### Arquitetura de Cliente/Servidor
+
+#### Arquitetura Pipe & Filter
+
+---
+
+
+
