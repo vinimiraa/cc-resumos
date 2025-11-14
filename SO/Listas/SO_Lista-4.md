@@ -36,7 +36,7 @@
 | 7     | 7          | [1, 7, 2, 3]                    | Nenhuma       | Nenhuma      |
 | 8     | 1          | [1, 7, 2, 3]                    | Nenhuma       | Nenhuma      |
 | 9     | 0          | [7, 2, 3, 0]                    | 6ª falta      | 6ª falta     |
-| 10    | 3          | [2, 3, 0, 7]                    | 7ª falta      | 7ª falta     |
+| 10    | 3          | [2, 3, 0, 7]                    | Nenhuma       | 7ª falta     |
 
 - **Questão 4:**
 	
