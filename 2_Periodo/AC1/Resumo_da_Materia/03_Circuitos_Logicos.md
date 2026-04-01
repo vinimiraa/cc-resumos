@@ -27,18 +27,20 @@ Decodificadores em geral são circuitos lógicos capazes de ativar uma saída de
 
 O código BCD é basicamente uma forma de codificar valores numéricos na base 10 em seus equivalentes binários.
 
-	  | Decimal | BCD  |
-	  |---------|------|
-	  |    0    | 0000 |
-	  |    1    | 0001 |
-	  |    2    | 0010 |
-	  |    3    | 0011 |
-	  |    4    | 0100 |
-	  |    5    | 0101 |
-	  |    6    | 0110 |
-	  |    7    | 0111 |
-	  |    8    | 1000 |
-	  |    9    | 1001 |
+```
+| Decimal | BCD  |
+|---------|------|
+|    0    | 0000 |
+|    1    | 0001 |
+|    2    | 0010 |
+|    3    | 0011 |
+|    4    | 0100 |
+|    5    | 0101 |
+|    6    | 0110 |
+|    7    | 0111 |
+|    8    | 1000 |
+|    9    | 1001 |
+```
 
 - Exemplo:
 
@@ -50,16 +52,18 @@ O código BCD é basicamente uma forma de codificar valores numéricos na base 1
 
 O código de Gray serve para expressar sequências binárias nas quais dois valores sucessivos tenham apenas um bit de diferença (distância de *Hamming* = 1). Esse código também é conhecido com “código binário refletido“.
 
-	  | Decimal | Binário | Gray |
-	  |---------|---------|------|
-	  | 0       | 000     | 000  |
-	  | 1       | 001     | 001  |
-	  | 2       | 010     | 011  |
-	  | 3       | 011     | 010  |
-	  | 4       | 100     | 110  |
-	  | 5       | 101     | 111  |
-	  | 6       | 110     | 101  |
-	  | 7       | 111     | 100  |
+```
+| Decimal | Binário | Gray |
+|---------|---------|------|
+| 0       | 000     | 000  |
+| 1       | 001     | 001  |
+| 2       | 010     | 011  |
+| 3       | 011     | 010  |
+| 4       | 100     | 110  |
+| 5       | 101     | 111  |
+| 6       | 110     | 101  |
+| 7       | 111     | 100  |
+```
 
 
 ## **Multiplexador**
@@ -68,55 +72,59 @@ Multiplexadores (ou seletores de dados) são circuitos lógicos capazes de atuar
 
 Multiplexadores podem selecionar **mais sinais** dependendo do número de bits (tamanho) da **chave de seleção**.
 
-      if ( selector == 1 )
-         output = input_b;
-      else
-         output = input_a;
-      
-               selector
-                  _|_ 
-      input_a ---|0  \
-                 |    |--- output
-      input_b ---|___/
-      
-               selector
-                   |   ____
-                   |  |    |\      ____
-                   +--|  1 |-+----|    |
-                   |  |____|      | &  |---+   ____ 
-      input_a -----|--------------|____|   |__|    |
-                   |               ____     __| >=1|--- output
-                   +--------------|    |   |  |____|
-                                  | &  |---+        
-      input_b --------------------|____|
+```
+  if ( selector == 1 )
+	 output = input_b;
+  else
+	 output = input_a;
+  
+		   selector
+			  _|_ 
+  input_a ---|0  \
+			 |    |--- output
+  input_b ---|___/
+  
+		   selector
+			   |   ____
+			   |  |    |\      ____
+			   +--|  1 |-+----|    |
+			   |  |____|      | &  |---+   ____ 
+  input_a -----|--------------|____|   |__|    |
+			   |               ____     __| >=1|--- output
+			   +--------------|    |   |  |____|
+							  | &  |---+        
+  input_b --------------------|____|
+```
 
 
 ## **Demultiplexador**
 
 Demultiplexadores (ou distribuidores de dados) são circuitos capazes de receber **um sinal de entrada e distribuí-lo em uma dentre várias saídas**, segundo um código de seleção. Podem ser usados para distribuir um mesmo sinal de ativação ou sequenciamento (*clock*) para vários circuitos.
 
-      if ( selector == 1 )
-         output_1 = input_a;
-      else
-         output_0 = input_a;
+```
+  if ( selector == 1 )
+	 output_1 = input_a;
+  else
+	 output_0 = input_a;
 
-               selector
-                  _|_
-                 /  0|--- output_0
-      nput_a ---|    | 
-                 \___|--- output_1 
+		   selector
+			  _|_
+			 /  0|--- output_0
+  nput_a ---|    | 
+			 \___|--- output_1 
 
-               selector
-                   |   ____
-                   |  |    |\      ____
-                   +--|  1 |-+----|    |
-                   |  |____|      | &  |--- output_0
-      input_a --+--|--------------|____|            
-                |  |               ____              
-                |  +--------------|    |            
-                |                 | &  |--- output_1      
-                +-----------------|____|
+		   selector
+			   |   ____
+			   |  |    |\      ____
+			   +--|  1 |-+----|    |
+			   |  |____|      | &  |--- output_0
+  input_a --+--|--------------|____|            
+			|  |               ____              
+			|  +--------------|    |            
+			|                 | &  |--- output_1      
+			+-----------------|____|
 
+```
 
 ## **Aplicações Aritméticas**
 
@@ -126,62 +134,72 @@ Demultiplexadores (ou distribuidores de dados) são circuitos capazes de receber
 
 ![[half_adder.png]]
 
-      - Equações características :
+  - Equações características :
 
-            Forma completa (ou canônica) :
+	```
+	Forma completa (ou canônica) :
+	
+	s1 = v =     a.b     (v -> "vai-um" )
+	s0 = r = a'.b + a.b' (r -> resultado)
+	
+	Forma compacta (soma de produtos) :
+	
+	s1 = v = SoP (3)
+	s0 = r = SoP (1,2)
+	```
 
-            s1 = v =     a.b     (v -> "vai-um" )
-            s0 = r = a'.b + a.b' (r -> resultado)
+  - Verilog :
 
-            Forma compacta (soma de produtos) :
+	- Definição por expressão :
 
-            s1 = v = SoP (3)
-            s0 = r = SoP (1,2)
+		```verilog
+		module halfAdder ( output carryOut, output sum, input a, input b ); 
+		  assign s0 = a ^ b; // a xor b
+		  assign s1 = a & b; // a and b 
+		endmodule // halfAdder
+		```
 
-      - Verilog :
+	- Definição por portas lógicas ( gates ):
 
-            - Definição por expressão :
-
-                  module halfAdder ( output carryOut, output sum, input a, input b ); 
-                      assign s0 = a ^ b; // a xor b
-                      assign s1 = a & b; // a and b 
-                  endmodule // halfAdder
-
-            - Definição por portas lógicas ( gates ):
-
-                  module halfAdder ( output carryOut, output sum, input a, input b ); 
-                      xor XOR (     sum , a, b ); 
-                      and AND ( carryOut, a, b ); 
-                  endmodule // halfAdder
+		```verilog
+		module halfAdder ( output carryOut, output sum, input a, input b ); 
+		  xor XOR (     sum , a, b ); 
+		  and AND ( carryOut, a, b ); 
+		endmodule // halfAdder
+		```
 
 - Somador de 3 bits ( "somador completo em cascata" ou "*ripple-carry adder*" ) :
 
 ![[full_adder.png]]
 
-      - Definição por expressão :
+- Definição por expressão :
 
-            module fullAdder ( output carryOut, output sum, input a, input b, input carry );
-                assign carryOut = (a ^ b) & carry | (a & b);
-                assign sum = (a ^ b) ^ carry;
-            endmodule // fullAdder
+	```verilog
+	module fullAdder ( output carryOut, output sum, input a, input b, input carry );
+		assign carryOut = (a ^ b) & carry | (a & b);
+		assign sum = (a ^ b) ^ carry;
+	endmodule // fullAdder
+	```
 
-      - Definição por portas lógicas ( gates ) :
+  - Definição por portas lógicas ( gates ) :
 
-            module fullAdder ( output carryOut, output sum, input a, input b, input carry );
-                wire w1, w2, w3;
-                xor XOR_1 ( w1, a ,  b );
-                xor XOR_2 ( sum, w1,  carry );
-                and AND_1 ( w2, w1,  carry );
-                and AND_2 ( w3, a ,  b );
-                and OR__1 ( carryOut, w2, w3 );
-            endmodule // fullAdder
-
-            module fullAdder ( output carry, output sum, input a,  input b,  input carry ); 
-                wire w1,w2,w3;
-                halfAdder HA0 ( w1, w2, a, b );
-                halfAdder HA1 ( w3, sum, w2, carry );
-                or        OR1 ( carry, w1, w3 );
-            endmodule // fullAdder
+		```verilog
+		module fullAdder ( output carryOut, output sum, input a, input b, input carry );
+			wire w1, w2, w3;
+			xor XOR_1 ( w1, a ,  b );
+			xor XOR_2 ( sum, w1,  carry );
+			and AND_1 ( w2, w1,  carry );
+			and AND_2 ( w3, a ,  b );
+			and OR__1 ( carryOut, w2, w3 );
+		endmodule // fullAdder
+		
+		module fullAdder ( output carry, output sum, input a,  input b,  input carry ); 
+			wire w1,w2,w3;
+			halfAdder HA0 ( w1, w2, a, b );
+			halfAdder HA1 ( w3, sum, w2, carry );
+			or        OR1 ( carry, w1, w3 );
+		endmodule // fullAdder
+		```
 
 ### Subtratores
 
